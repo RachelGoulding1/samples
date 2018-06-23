@@ -55,12 +55,12 @@ The trading team expect at least 10% (188) of customers to return to the sales j
    * single use codes
    * multiple use codes
 * Update the abandoned basket email template to include the URL link button
-* Update URL generator to allow discount codes to be added to basket deeplink URLs
+* Update URL generator to allow offer codes to be added to basket deeplink URLs
 
 
 ### Out of Scope
 
-* Catalogue prices shown within product selection will not be updated
+* The catalogue prices shown within product selection will not be updated
 * The offer URL will not open or be accessible within the sales app
 * The offer URL will not work for non UK sites as part of this implementation
 * My Account journeys will not be updated as part of this implementation
@@ -96,20 +96,20 @@ The basket will not load in the following scenarios:
 
 1. Link not valid - The website may not load and a generic browser 'page not found' message will appear
 2. Products not valid or no longer available - If the selected products are no longer in the catalogue or are out of stock the basket page will be displayed along with the appropiate message.
-3. Discount not valid or no longer available - If the discount has expired or is no longer available the basket page should be displayed with the appropriate message.
+3. Offer not valid or no longer available - If the offer has expired or is no longer available the basket page should be displayed with the appropriate message.
 
 
 ## Requirements
 
-|Ref     	|Description                |	User Story     	    |Acceptance Criteria	       |	Notes                 |
+|Ref     	|Description                |	User Story     	    |Acceptance Criteria	       |	Size                  |
 |---------|---------------------------|---------------------|----------------------------|------------------------|
-|ADC001   | Update the email template |As an email customer, I would like to view the 'Buy Now' link, So that I can easily resume my purchase journey|- Update email wording       - Add link field         - Add button |                        |
-|ADC002   | Update the URL generator  |As a campaign manager, I would like to add a discount code to a basket deeplink, So that I can construct the URL |-Return valid discount codes within URL generator - Allow discount codes to be appended to URL's|Optional field. One per URL|
-|ADC003   | Apply basket offer        |As an email customer, I would like to view the basket with the offer applied, So that I can see the correct price |- Submit offer code from the URL - Display offer price - Display offer styling - Display offer T&C's| No changes required to offer styling, messaging or T&C's|
-|ADC004   | Products not available    |As an email customer, I would like to see a message if the basket doesn't load, So that I understand what to do next|- Display standard 'Ooops' message - Display a link back to the homepage|                      No changes required, test only|
-|ADC005   | Products Out of Stock     |As an email customer, I would like to see an 'out of stock' status, So that I know when I can place my order| -Display basket with offer applied -Show stock state -Display delivery expectations |No changes required, test only |
-|ADC006   | Invalid Discount Code     |As an email customer, I would like to see an invalid offer message, So that I understand why the offer isn't applied|- Display basket without offer - Show expired offer code message|  No changes required, test only |
-|ADC007   | Reporting                 | As a business owner, I would like to see the results of the change, So that I know how successful the journey is |- Add Abandoned basket sales report to the sales dashboard -Show: emails sent, emails opened, links clicked, baskets viewed and Orders Placed | No new tracking events required, dashboard config only |
+|ADC001   | Update the email template |As an email customer, I would like to view the 'Buy Now' link, So that I can easily resume my purchase journey|- Update email wording       - Add link field         - Add button |  X Small                    |
+|ADC002   | Update the URL generator  |As a campaign manager, I would like to add an offer code to a basket deeplink, So that I can construct the URL |-Return valid offer codes within URL generator - Allow upto 1 offer code to be optionally appended to URL's| Medium (Requires new API call)  |
+|ADC003   | Apply basket offer        |As an email customer, I would like to view the basket with the offer applied, So that I can see the correct price |- Submit offer code from the URL - Display offer price - Display offer styling - Display offer T&C's| Small (No changes required to offer styling, messaging or T&C's)|
+|ADC004   | Products not available    |As an email customer, I would like to see a message if the basket doesn't load, So that I understand what to do next|- Display standard 'Ooops' message - Display a link back to the homepage|Small (No changes required, test only)|
+|ADC005   | Products Out of Stock     |As an email customer, I would like to see an 'out of stock' status, So that I know when I can place my order| -Display basket with offer applied -Show stock state -Display delivery expectations |X Small (No changes required, test only) |
+|ADC006   | Invalid offer Code     |As an email customer, I would like to see an invalid offer message, So that I understand why the offer isn't applied|- Display basket without offer - Show expired offer code message|  Small (No changes required, test only) |
+|ADC007   | Reporting                 | As a business owner, I would like to see the results of the change, So that I know how successful the journey is |- Add Abandoned basket sales report to the sales dashboard -Show: emails sent, emails opened, links clicked, baskets viewed and Orders Placed | X Small (No new tracking events required, dashboard config only) |
 
 
 ## Non Functional Requirements
@@ -155,3 +155,5 @@ Existing security best practices should be applied and considered when generatin
 
 
 ## Risks and Issues
+
+* Existing invalid basket messages may not work as expected so some investigation and additional work maybe required to update basket messages.
