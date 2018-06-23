@@ -15,8 +15,8 @@ So that I can see the correct price
    - [ ] offer text
    - [ ] offer T&C's
   
-  Example offer URL: https://www.sky.com/shop/mobile/basket-summary/?14210&14518&14677&offer=iPhoneX-wk49
-  Offer code should be extracted after 'offer=' and upto the next '&' if present
+  Example offer URL: https://www.sky.com/shop/mobile/basket-summary/?14210&14518&14677&offer=iPhoneX-wk49   
+  The Offer code should be extracted after 'offer=' and upto the next '&' if present
 
 
 **Design**
