@@ -12,10 +12,11 @@ So that I can see the correct price
 
   - [ ] Extract the offer code from the Basket URL if present
   - [ ] Submit the offer code to the basket service
-  - [ ] Display the below returned offer information
-   - [ ] offer price
-   - [ ] offer text
-   - [ ] offer T&C's
+  - [ ] Display the below returned offer information:
+  
+    - [ ] offer price
+    - [ ] offer text
+    - [ ] offer T&C's
    
 
 Notes: 
