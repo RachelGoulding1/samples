@@ -9,7 +9,7 @@ The Trading team would like to improve the abandoned basket sales process and en
 
 ## Business Opportunity
 
-The Trading team believe that allowing a customer to return to the basket with the discount applied with a single click will have a significant impact on the number of customers who return to the sales journey.
+The Trading team believe that allowing a customer to return to the basket with the discount applied with a single click will have a significant impact on the number of customers who return to the sales journey to complete their purchase.
 
 
 ## Business Outcome
@@ -51,14 +51,16 @@ The trading team expect at least 10% (188) of customers to return to the sales j
    * single use codes
 
 * Update URL generator to allow discount codes to be added to basket URLs
+* Update the abandoned basket email template to include the URL link button
+
  
 
 ### Out of Scope
 
-* Catalogue prices shown within product selection
-* The app
-* Non UK websites
-* My Account journeys
+* Catalogue prices shown within product selection will not be updated
+* The discount URL will not open or be accessible within the sales app
+* The discount URL will not work for non UK sites as part of this implementation
+* My Account journeys will not be updated as part of this implementation
 
 
 ## High-Level Process
@@ -66,6 +68,28 @@ The trading team expect at least 10% (188) of customers to return to the sales j
 
 ![discount flow](https://user-images.githubusercontent.com/40513613/41807383-5f56d552-76c6-11e8-9d6a-1d2608fd84cb.png)
 
+
+### Pre Condition
+
+Customers who dropped out of the sales journey during checkout will recieve an abandoned basket email which includes an offer.
+
+### Post Condition
+
+Customers who return to the basket with the offer applied may continue and complete their order.
+
+### Steps
+
+1. Recieve Abandoned Basket Email - Customers will recieve an email offering them the chance to complete their order with a special offer.
+2. Select Link - Customers should be able to select a 'Buy Now' button which will deeplink them to a pre-populated basket with the offer. Example link sky.com/mobile/basket-summary?11406&15667?xw12gould25
+3. View Basket - Customers should see the basket with the option to proceed to checkout
+
+### Exceptions
+
+The basket will not load in the following scenarios:
+
+1. Link not valid - The website may not load and a generic browser 'page not found' message will appear
+2. Products not valid or no longer available - If the selected products are no longer in the catalogue or are out of stock the basket page will be displayed along with the appropiate message.
+3. Discount not valid or no longer available - If the discount has expired or is no longer available the basket page should be displayed with the appropriate message.
 
 ## Requirements
 
