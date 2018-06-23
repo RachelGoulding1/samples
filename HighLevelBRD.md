@@ -1,4 +1,4 @@
-# Automated Discount Codes
+# Automated Offer Codes
 
 
 ## Business Problem  
@@ -7,14 +7,18 @@ An abandoned basket email is sent to all customers who drop out of the sales jou
 
 The trading team would like to improve the abandoned basket sales process and encourage customers back to complete their purchase.
 
+
 ## Business Opportunity
 
-The trading team believe that allowing a customer to return to the basket with the discount applied with a single click will have a significant impact on the number of customers who return to the sales journey to complete their purchase.
+The trading team believe that allowing a customer to return to the basket with an offer applied with a single click will have a significant impact on the number of customers who return to the sales journey to complete their purchase.
+
+The automatic offer codes may be used within other marketing emails and online journeys but the abandoned basket customers have been flagged as a key opportunity.
 
 
 ## Business Outcome
 
 The trading team expect at least 10% (188) of customers to return to the sales journey if the email is improved.
+
 
 ## Measurement Criteria
 
@@ -39,28 +43,26 @@ The trading team expect at least 10% (188) of customers to return to the sales j
 | Customer Support   |                              |          |
 
 
-
 ## Scope
+
 
 ### In Scope
 
-* Automatically apply discounts based on the discount code passed within the basket URL  
-* Apply dicounts for
+* Apply an offer in the basket based on the offer code passed within the basket URL  
+* Apply offers for
    * generic codes i.e. summer10  
    * user specific codes i.e. xw12gould25
    * single use codes
    * multiple use codes
-
-* Update URL generator to allow discount codes to be added to basket URLs
 * Update the abandoned basket email template to include the URL link button
+* Update URL generator to allow discount codes to be added to basket deeplink URLs
 
- 
 
 ### Out of Scope
 
 * Catalogue prices shown within product selection will not be updated
-* The discount URL will not open or be accessible within the sales app
-* The discount URL will not work for non UK sites as part of this implementation
+* The offer URL will not open or be accessible within the sales app
+* The offer URL will not work for non UK sites as part of this implementation
 * My Account journeys will not be updated as part of this implementation
 
 
@@ -74,15 +76,19 @@ The trading team expect at least 10% (188) of customers to return to the sales j
 
 Customers who dropped out of the sales journey during checkout will recieve an abandoned basket email which includes an offer.
 
+
 ### Post Condition
 
 Customers who return to the basket with the offer applied may continue and complete their order.
+
 
 ### Steps
 
 1. Recieve Abandoned Basket Email - Customers will recieve an email offering them the chance to complete their order with a special offer.
 2. Select Link - Customers should be able to select a 'Buy Now' button which will deeplink them to a pre-populated basket with the offer. Example link sky.com/mobile/basket-summary?11406&15667?xw12gould25
 3. View Basket - Customers should see the basket with the option to proceed to checkout
+
+
 
 ### Exceptions
 
@@ -92,20 +98,22 @@ The basket will not load in the following scenarios:
 2. Products not valid or no longer available - If the selected products are no longer in the catalogue or are out of stock the basket page will be displayed along with the appropiate message.
 3. Discount not valid or no longer available - If the discount has expired or is no longer available the basket page should be displayed with the appropriate message.
 
+
 ## Requirements
 
-|Ref     	|Description           |	User Story     	   |Acceptance Criteria	       |	Notes                 |
-|---------|----------------------|---------------------|----------------------------|------------------------|
-|ADC001   | Update URL Generator |   As a Campaign Manager, I would like to add a discount code to the URL's I generate, So that i can easily configure the discount URL's |                         |                        |
-|ADC002   |  Add URL to email    |                    |                            |                        |
-|ADC003   |  Update basket       |                    |                            |                        |
-|ADC004   |  Error Handling      |                    |                            |                        |
-|ADC005   |  Reporting           |                    |                            |                        |
-
-
+|Ref     	|Description                |	User Story     	    |Acceptance Criteria	       |	Notes                 |
+|---------|---------------------------|---------------------|----------------------------|------------------------|
+|ADC001   | Update the email template |As an email customer, I would like to view the 'Buy Now' link, So that I can easily resume my purchase journey|- Update email wording       - Add link field         - Add button |                        |
+|ADC002   | Update the URL generator  |As a campaign manager, I would like to add a discount code to a basket deeplink, So that I can construct the URL |-Return valid discount codes within URL generator - Allow discount codes to be appended to URL's|Optional field. One per URL|
+|ADC003   | Apply basket offer        |As an email customer, I would like to view the basket with the offer applied, So that I can see the correct price |- Submit offer code from the URL - Display offer price - Display offer styling - Display offer T&C's| No changes required to offer styling, messaging or T&C's|
+|ADC004   | Products not available    |As an email customer, I would like to see a message if the basket doesn't load, So that I understand what to do next|- Display standard 'Ooops' message - Display a link back to the homepage|                      No changes required, test only|
+|ADC005   | Products Out of Stock     |As an email customer, I would like to see an 'out of stock' status, So that I know when I can place my order| -Display basket with offer applied -Show stock state -Display delivery expectations |No changes required, test only |
+|ADC006   | Invalid Discount Code     |As an email customer, I would like to see an invalid offer message, So that I understand why the offer isn't applied|- Display basket without offer - Show expired offer code message|  No changes required, test only |
+|ADC007   | Reporting                 | As a business owner, I would like to see the results of the change, So that I know how successful the journey is |- Add Abandoned basket sales report to the sales dashboard -Show: emails sent, emails opened, links clicked, baskets viewed and Orders Placed | No new tracking events required, dashboard config only |
 
 
 ## Non Functional Requirements
+
 
 ### Volume 
 
@@ -115,23 +123,27 @@ The basket will not load in the following scenarios:
 |Basket traffic             |  30   | 180   | 1400   | 5250   |
 |New Orders                 |  9    | 54    | 420    | 1575   |
 
-Notes:
+**Notes:**
 
-Hourly assumes most customers will visit the website within 6 hours of recieving the email
-Basket traffic assumes a 10% click through rate of the 25% who read the email
+Hourly assumes most customers will visit the website within 6 hours of recieving the email  
+Basket traffic assumes a 10% click through rate of the 25% who read the email  
 New Orders assumes a 30% conversion rate
 
-Suggestion:
+
+**Suggestion:**
 
 Thorough integration testng should be performed for each dicount code type from URL generation to email creation to basket creation. A load test is not required as the additional load from this feature sits comfortably within existing daily tolerances.
+
 
 ### Speed
 
 The basket page should load with the discounted prices in less than 0.2 seconds, there should be no percieved wait time for the user.
 
+
 ### Security
 
 Existing security best practices should be applied and considered when generating and sending emails.
+
 
 ## Assumptions
 
