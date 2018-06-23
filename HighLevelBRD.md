@@ -5,11 +5,11 @@
 
 An abandoned basket email is sent to all customers who drop out of the sales journey during the checkout step (approx 7500 customers per day).  25% (1875) of customers open and read the abandoned basket email but currently less than 2% (38) of those who read the email return to the sales journey to complete their purchase.
 
-The Trading team would like to improve the abandoned basket sales process and encourage customers back to complete their purchase.
+The trading team would like to improve the abandoned basket sales process and encourage customers back to complete their purchase.
 
 ## Business Opportunity
 
-The Trading team believe that allowing a customer to return to the basket with the discount applied with a single click will have a significant impact on the number of customers who return to the sales journey to complete their purchase.
+The trading team believe that allowing a customer to return to the basket with the discount applied with a single click will have a significant impact on the number of customers who return to the sales journey to complete their purchase.
 
 
 ## Business Outcome
@@ -44,11 +44,12 @@ The trading team expect at least 10% (188) of customers to return to the sales j
 
 ### In Scope
 
-* Automatically Apply Discounts based on the discount code passed within the basket URL  
+* Automatically apply discounts based on the discount code passed within the basket URL  
 * Apply dicounts for
    * generic codes i.e. summer10  
    * user specific codes i.e. xw12gould25
    * single use codes
+   * multiple use codes
 
 * Update URL generator to allow discount codes to be added to basket URLs
 * Update the abandoned basket email template to include the URL link button
@@ -104,18 +105,25 @@ The basket will not load in the following scenarios:
 
 
 
-
 ## Non Functional Requirements
 
 ### Volume 
 
-|                           |hourly | Daily | Weekly |Monthly |
+|                           |Hourly | Daily | Weekly |Monthly |
 |---------------------------|-------|-------|--------|--------|
-|Abandoned basket emails    |  n/a  |       |        |        |
-|Basket traffic             |       |       |        |        |
-|New Orders                 |       |       |        |        |
+|Abandoned basket emails    |  n/a  | 7,500 | 55,000 | 210,000|
+|Basket traffic             |  30   | 180   | 1400   | 5250   |
+|New Orders                 |  9    | 54    | 420    | 1575   |
 
-Thorough integration testng should be performed for each dicount code test from email creation to basket creation but a load test is not required as the additional load from this feature sits comfortably within existing daily tolerances.
+Notes:
+
+Hourly assumes most customers will visit the website within 6 hours of recieving the email
+Basket traffic assumes a 10% click through rate of the 25% who read the email
+New Orders assumes a 30% conversion rate
+
+Suggestion:
+
+Thorough integration testng should be performed for each dicount code type from URL generation to email creation to basket creation. A load test is not required as the additional load from this feature sits comfortably within existing daily tolerances.
 
 ### Speed
 
