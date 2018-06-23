@@ -64,7 +64,7 @@ The trading team expect at least 10% (188) of customers to return to the sales j
 ## High-Level Process
 
 
-
+![discount flow](https://user-images.githubusercontent.com/40513613/41807383-5f56d552-76c6-11e8-9d6a-1d2608fd84cb.png)
 
 
 ## Requirements
