@@ -85,7 +85,7 @@ Customers who return to the basket with the offer applied may continue and compl
 ### Steps
 
 1. Recieve Abandoned Basket Email - Customers will recieve an email offering them the chance to complete their order with a special offer.
-2. Select Link - Customers should be able to select a 'Buy Now' button which will deeplink them to a pre-populated basket with the offer. Example link sky.com/mobile/basket-summary?11406&15667?xw12gould25
+2. Select Link - Customers should be able to select a 'Buy Now' button which will deeplink them to a pre-populated basket with the offer. Example link https://www.sky.com/shop/mobile/basket-summary/?14210&14518&14677&offer=iPhoneX-wk49
 3. View Basket - Customers should see the basket with the option to proceed to checkout
 
 
@@ -94,7 +94,7 @@ Customers who return to the basket with the offer applied may continue and compl
 
 The basket will not load in the following scenarios:
 
-1. Link not valid - The website may not load and a generic browser 'page not found' message will appear
+1. Link not valid - The website may not load and a generic browser 'page not found' message will appear.
 2. Products not valid or no longer available - If the selected products are no longer in the catalogue or are out of stock the basket page will be displayed along with the appropiate message.
 3. Offer not valid or no longer available - If the offer has expired or is no longer available the basket page should be displayed with the appropriate message.
 
@@ -107,8 +107,8 @@ The basket will not load in the following scenarios:
 |AOC002   | Update the URL generator  |As a campaign manager, I would like to add an offer code to a basket deeplink, So that I can construct the URL |-Return valid offer codes within URL generator - Allow upto 1 offer code to be optionally appended to URL's| Medium (Requires new API call)  |
 |AOC003   | Apply basket offer        |As an email customer, I would like to view the basket with the offer applied, So that I can see the correct price |- Submit offer code from the URL - Display offer price - Display offer styling - Display offer T&C's| Small (No changes required to offer styling, messaging or T&C's)|
 |AOC004   | Products not available    |As an email customer, I would like to see a message if the basket doesn't load, So that I understand what to do next|- Display standard 'Ooops' message - Display a link back to the homepage|Small (No changes required, test only)|
-|AOC005   | Products Out of Stock     |As an email customer, I would like to see an 'out of stock' status, So that I know when I can place my order| -Display basket with offer applied -Show stock state -Display delivery expectations |X Small (No changes required, test only) |
-|AOC006   | Invalid offer Code     |As an email customer, I would like to see an invalid offer message, So that I understand why the offer isn't applied|- Display basket without offer - Show expired offer code message|  Small (No changes required, test only) |
+|AOC005   | Products out of stock     |As an email customer, I would like to see an 'out of stock' status, So that I know when I can place my order| -Display basket with offer applied -Show stock state -Display delivery expectations |X Small (No changes required, test only) |
+|AOC006   | Invalid offer code     |As an email customer, I would like to see an invalid offer message, So that I understand why the offer isn't applied|- Display basket without offer - Show expired offer code message|  Small (No changes required, test only) |
 |AOC007   | Reporting                 | As a business owner, I would like to see the results of the change, So that I know how successful the journey is |- Add Abandoned basket sales report to the sales dashboard -Show: emails sent, emails opened, links clicked, baskets viewed and Orders Placed | X Small (No new tracking events required, dashboard config only) |
 
 
@@ -121,16 +121,16 @@ The basket will not load in the following scenarios:
 |---------------------------|-------|-------|--------|--------|
 |Abandoned basket emails    |  n/a  | 7,500 | 55,000 | 210,000|
 |Basket traffic             |  30   | 180   | 1400   | 5250   |
-|New Orders                 |  9    | 54    | 420    | 1575   |
+|New orders                 |  9    | 54    | 420    | 1575   |
 
-**Notes:**
+Notes:
 
-Hourly assumes most customers will visit the website within 6 hours of recieving the email  
-Basket traffic assumes a 10% click through rate of the 25% who read the email  
-New Orders assumes a 30% conversion rate
+Hourly assumes most customers will visit the website within 6 hours of recieving the email.  
+Basket traffic assumes a 10% click through rate of the 25% who read the email.  
+New orders assumes a 30% conversion rate.
 
 
-**Suggestion:**
+Suggestion:
 
 Thorough integration testng should be performed for each dicount code type from URL generation to email creation to basket creation. A load test is not required as the additional load from this feature sits comfortably within existing daily tolerances.
 
