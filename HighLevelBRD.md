@@ -44,73 +44,70 @@ The trading team expect at least 10% (188) of customers to return to the sales j
 
 ### In Scope
 
-Add discount codes to Basket URL links
-Apply discount based on discount code passed within URL
+* Automatically Apply Discounts based on the discount code passed within the basket URL  
+* Apply dicounts for
+   * generic codes i.e. summer10  
+   * user specific codes i.e. xw12gould25
+   * single use codes
 
-Generic discount codes i.e. spring10
-User specific discount codes i.e. xw12gould25
-Single use discount codes
+* Update URL generator to allow discount codes to be added to basket URLs
+ 
 
 ### Out of Scope
 
-Product selection
-The app
-Non UK territories
+* Catalogue prices shown within product selection
+* The app
+* Non UK websites
+* My Account journeys
+
+
+## High-Level Process
 
 
 
 
 
-High-Level Process
+## Requirements
+
+|Ref     	|Description           |	User Story     	   |Acceptance Criteria	       |	Notes                 |
+|---------|----------------------|---------------------|----------------------------|------------------------|
+|ADC001   | Update URL Generator |   As a Campaign Manager, I would like to add a discount code to the URL's I generate, So that i can easily configure the discount URL's |                         |                        |
+|ADC002   |  Add URL to email    |                    |                            |                        |
+|ADC003   |  Update basket       |                    |                            |                        |
+|ADC004   |  Error Handling      |                    |                            |                        |
+|ADC005   |  Reporting           |                    |                            |                        |
 
 
 
 
 
-Requirements
+## Non Functional Requirements
 
-Ref     	Description	User Story     	Acceptance Criteria	Design	Notes
+### Volume 
 
-Generic discount codes	
+|                           |hourly | Daily | Weekly |Monthly |
+|---------------------------|-------|-------|--------|--------|
+|Abandoned basket emails    |  n/a  |       |        |        |
+|Basket traffic             |       |       |        |        |
+|New Orders                 |       |       |        |        |
 
+Thorough integration testng should be performed for each dicount code test from email creation to basket creation but a load test is not required as the additional load from this feature sits comfortably within existing daily tolerances.
 
+### Speed
 
+The basket page should load with the discounted prices in less than 0.2 seconds, there should be no percieved wait time for the user.
 
+### Security
 
+Existing security best practices should be applied and considered when generating and sending emails.
 
+## Assumptions
 
-
-
-
-
-
-
-
-
-
-Error Handling	
-
-
-
-
-Reporting	
-
-
+* No changes are required to the way discount codes are currently set up and managed within ref data
+* No changes are required to the way discounts are currently displayed within the basket
+* Existing error messages will be used
+* Marketing may use the dicount deeplinks in other scenarios such as landing page promo's, PPC or display ads
+* No changes are required to existing reporting for entry types
 
 
-Non Functional Requirements
-
-Volume
-
-Speed
-
-Security
-
-Assumptions
-
-No changes are required to the way discount codes are currently set up and managed within ref data
-
-
-
-
-Risks and Issues
+## Risks and Issues
