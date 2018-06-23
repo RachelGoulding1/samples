@@ -1,3 +1,5 @@
+ref: AOC003
+
 **User Story**
 
 As an email customer  
@@ -14,9 +16,14 @@ So that I can see the correct price
    - [ ] offer price
    - [ ] offer text
    - [ ] offer T&C's
+   
+
+Notes: 
   
-  Example offer URL: https://www.sky.com/shop/mobile/basket-summary/?14210&14518&14677&offer=iPhoneX-wk49   
-  The Offer code should be extracted after 'offer=' and upto the next '&' if present
+1.  Example offer URL: https://www.sky.com/shop/mobile/basket-summary/?14210&14518&14677&offer=iPhoneX-wk49   
+    The Offer code should be extracted after 'offer=' and upto the next '&' if present
+  
+2.  Additional feature background information can be found [here](https://github.com/RachelGoulding1/samples/blob/master/HighLevelBRD.md) 
 
 
 **Design**
